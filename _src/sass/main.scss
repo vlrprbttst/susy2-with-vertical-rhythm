@@ -1,0 +1,175 @@
+// base
+@import "compass";
+@import "partials/_variables.scss";
+@import "partials/_mixin.scss";
+@import "partials/_normalize.scss";
+@import "susy";
+@import "partials/_layout.scss";
+
+// Susy defaults
+
+$susy: (
+  flow: ltr,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  container: 1280px,
+  container-position: center,
+  columns: 12,
+  gutters: .25,
+  column-width: false,
+  global-box-sizing: border-box, // important
+  last-flow: from, // anche l'ultimo elemento va in float:left
+  debug: (
+    image: show,
+    color: rgba(#66f, .25),
+    //output: overlay,
+    output: background-image,
+    toggle: top right,
+  ),
+  use-custom: (
+    background-image: false,
+    background-options: false,
+    box-sizing: true,
+    clearfix: false,
+    rem: false,
+
+  )
+);
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+// ####################################################### //
+// ####################################################### //
+// ####### isolated incomplete rows ############ //
+// ####################################################### //
+// ####################################################### //
+
+.pippo {
+    width: span(8 of 12);
+    margin:0 auto rhythm(1);
+}
+
+.pluto {
+    width: span(2 of 12);
+    margin:0 0 rhythm(1);
+}
+
+.paperino {
+    width: span(5 of 12);
+    margin:0 0 rhythm(1);
+}
+
+// ####################################################### //
+// ####################################################### //
+// ####### container ############ //
+// ####################################################### //
+// ####################################################### //
+
+.container {
+  background-color: #efefef;
+  //max-width:100%
+  @include container;
+  //max-width:1280px
+  //@include container(1280px);
+  @include clearfix;
+}
+
+// ####################################################### //
+// ####################################################### //
+// ####### first row ############ //
+// ####################################################### //
+// ####################################################### //
+
+.ag1 {
+  @include span(3 of 12);
+  @media (max-width: 768px) {
+       @include span(6 of 12);
+  }
+}
+
+.ag2 {
+  @include span(6 of 12);
+  // containers other floating elements:
+  @include clearfix;
+  @media (max-width: 768px) {
+       @include span(3 of 12);
+  }
+}
+
+.ag3 {
+  @include span(3 of 12 last);
+  @media (max-width: 768px) {
+       @include span(3 of 12 last);
+  }
+}
+
+// ####################################################### //
+// ####################################################### //
+// ## nested in .ag2: the new context is now 6, not 10#### //
+// ####################################################### //
+// ####################################################### //
+
+.ag4 {
+  @include span(3 of 6);
+  @media (max-width: 768px) {
+       @include span(1 of 3);
+  }
+}
+
+.ag5 {
+  @include span(3 of 6 last);
+  @media (max-width: 768px) {
+       @include span(2 of 3 last);
+  }
+  // you can use this mixin also
+  // @include last;
+}
+
+// ####################################################### //
+// ####################################################### //
+// ## second row - the context is still 6 as it's nested in .ag2 #### //
+// ####################################################### //
+// ####################################################### //
+
+.ag6 {
+  @include span(2 of 6);
+  @media (max-width: 768px) {
+       @include span(1 of 3);
+  }
+}
+
+.ag7 {
+  @include span(4 of 6 last);
+  @include clearfix;
+  @media (max-width: 768px) {
+       @include span(2 of 3 last);
+  }
+}
+
+// ####################################################### //
+// ####################################################### //
+// ## nested in .ag7 : context 4 on desktop / 3 in mobile#### //
+// ####################################################### //
+// ####################################################### //
+
+.ag8 {
+  @include span(2 of 4);
+  @media (max-width: 768px) {
+       @include span(full);
+  }
+}
+
+.ag9 {
+  @include span(2 of 4 last);
+  @media (max-width: 768px) {
+       @include span(full);
+  }
+}
+
+.ag10 {
+  @include span(full);
+  // or clear:both
+}

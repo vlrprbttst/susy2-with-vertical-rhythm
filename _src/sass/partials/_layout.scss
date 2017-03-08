@@ -1,0 +1,74 @@
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #efefef;
+}
+
+.box {
+    background: tomato;
+    margin-bottom: 20px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.ag1, .ag3 {
+  background: lime;
+}
+
+.ag2 {
+  background-color: #fae7b3;
+}
+
+.ag4,.ag5,.ag8,.ag9 {
+  background-color: #ee9e9c;
+}
+
+.ag6 {
+  background-color: #f09671;
+}
+
+.ag7 {
+  background-color: #f6d784;
+}
+
+.ag10 {
+  background-color: #ea9fc3;
+}
+
+/**
+ - Text Styles
+ */
+ h1 {
+     margin: 0;
+     text-align: center;
+     @include adjust-font-size-to(32px);
+
+ }
+h2 {
+  text-align: center;
+  @include adjust-font-size-to(16px);
+}
+
+.pippo {
+    background: lime;
+}
+
+.pluto {
+    background: hotpink;
+}
+
+.paperino {
+    background: navy;
+    color: white;
+}
